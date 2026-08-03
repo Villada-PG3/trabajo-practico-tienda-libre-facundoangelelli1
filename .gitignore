@@ -15,3 +15,5 @@ __pycache__/
 
 # Variables de entorno secretas (si usas en el futuro)
 .env
+productos/
+media/
