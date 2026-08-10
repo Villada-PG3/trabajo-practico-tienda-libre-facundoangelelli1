@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca de mí - Facundo Angelelli</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #fcfcfc;
+            color: #1a1a1a;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        header {
+            max-width: 750px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .brand {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        nav a {
+            color: #666666;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        main {
+            max-width: 750px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+            flex-grow: 1;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+            color: #1a1a1a;
+        }
+
+        .role {
+            font-size: 1rem;
+            color: #666666;
+            margin-bottom: 2rem;
+        }
+
+        .content-block {
+            margin-bottom: 2rem;
+        }
+
+        .content-block h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            color: #1a1a1a;
+            border-bottom: 1px solid #eaeaea;
+            padding-bottom: 0.3rem;
+        }
+
+        .content-block p {
+            color: #444444;
+            font-size: 0.98rem;
+        }
+
+        ul.skills-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.8rem;
+        }
+
+        ul.skills-list li {
+            background-color: #f2f2f2;
+            color: #333333;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .footer-nav {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #eaeaea;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .status {
+            font-size: 0.85rem;
+            color: #666666;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        footer {
+            max-width: 750px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            border-top: 1px solid #eaeaea;
+            color: #888888;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="/home-view/" class="brand">Facundo Angelelli</a>
+        <nav>
+            <a href="/home-view/">Inicio</a>
+            <a href="/acerca-de-mi/" class="active">Acerca de mí</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Facundo Angelelli</h1>
+        <p class="role">Estudiante en ITS Villada</p>
+
+        <div class="content-block">
+            <h2>Sobre mí</h2>
+            <p>
+                Soy estudiante del ITS Villada. Me interesa la programación, el desarrollo de sistemas y el aprendizaje continuo de nuevas tecnologías.
+            </p>
+        </div>
+
+        <div class="content-block">
+            <h2>Intereses técnicos</h2>
+            <ul class="skills-list">
+                <li>Python</li>
+                <li>Django</li>
+                <li>HTML / CSS</li>
+                <li>JavaScript</li>
+            </ul>
+        </div>
+
+        <div class="footer-nav">
+            <a href="/home-view/" class="back-link">← Volver al inicio</a>
+            <span class="status" id="btn-visita">Visitas registradas: <strong id="count">1</strong></span>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Facundo Angelelli — Proyecto Almacén / Django</p>
+    </footer>
+
+    
+</body>
+</html>
