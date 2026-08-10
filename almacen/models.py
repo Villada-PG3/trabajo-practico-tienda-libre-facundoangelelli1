@@ -26,6 +26,7 @@ class Producto(models.Model):
     stock = models.IntegerField(default=0)
     marca = models.CharField(max_length=50, default='Marca Desconocida')
     imagen = models.ImageField(upload_to='productos/', null=True, blank=True)
+    
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     activo = models.BooleanField(default=True)
 

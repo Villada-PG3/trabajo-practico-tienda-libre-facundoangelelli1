@@ -3,6 +3,6 @@ from .views import HomeView, AcercaDeMiView
 
 
 urlpatterns = [
-    path('home-view/', HomeView.as_view(), name='home'),
+    path('', HomeView.as_view(), name='home'),
     path('acerca-de-mi/', AcercaDeMiView.as_view(), name='acerca_de_mi'),
 ]
