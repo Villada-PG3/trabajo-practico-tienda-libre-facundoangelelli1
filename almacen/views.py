@@ -4,7 +4,7 @@ from .models import Producto
 def home(request):
     contexto = {
         "titulo": "Ofertas de la semana",
-        "usuario_logueado": True,
+        "usuario_logueado": True ,
         "productos_destacados": [
             {"nombre": "Auriculares Bluetooth", "precio": 15999, "stock": 32},
             {"nombre": "Mouse inalámbrico", "precio": 8499, "stock": 18},
@@ -12,6 +12,7 @@ def home(request):
             {"nombre": "Webcam HD", "precio": 12999, "stock": 4},
             {"nombre": "Pendrive 64GB", "precio": 5999, "stock": 1},
             {"nombre": "Hub USB-C", "precio": 7299, "stock": 0},
+            {"nombre": "Celular", "precio": None, "stock": 1},
         ],
     }
     return render(request, "almacen/home.html", contexto)
