@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
   <div class="container">
-    <a class="navbar-brand fw-bold" href="{% url 'home' %}">
+    <a class="navbar-brand fw-bold" href="{% url 'almacen:home' %}">
       🛍️ Tienda Libre
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -9,14 +9,16 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'home' %}">Inicio</a>
+          <a class="nav-link" href="{% url 'almacen:home' %}">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'acerca_de_mi' %}">Acerca de mí</a>
+          <a class="nav-link" href="{% url 'almacen:productos' %}">Productos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'almacen:acerca-de-mi' %}">Acerca de mí</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
-
 
