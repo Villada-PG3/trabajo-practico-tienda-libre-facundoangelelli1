@@ -1,0 +1,10 @@
+todos_los_productos = Producto.objects.all()
+categoria_uno = Categoria.objects.get(id=1)
+sin_stock = Producto.objects.filter(stock=0)
+productos_papa = Producto.objects.filter(nombre__icontains='papa')
+rango_precio = Producto.objects.filter(precio__gt=10, precio__lt=100)
+no_tan_baratos = Producto.objects.exclude(precio__lt=500)
+top_5_caros = Producto.objects.all().order_by('-precio')[:5]  - ordena los resultados de mayor a menor
+productos_seleccionados = Producto.objects.filter(id__in=[2, 5, 8])
+comidas = Producto.objects.filter(categoria__nombre__icontains='comida')
+cantidad_stock_bajo = Producto.objects.filter(stock__lt=5).count()
