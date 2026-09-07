@@ -1,0 +1,101 @@
+{% extends "almacen/base.html" %}
+
+{% block title %}Catálogo | Tienda Libre{% endblock %}
+
+{% block content %}
+
+<!-- ENCABEZADO -->
+<div class="text-center mb-5">
+    <h1 class="fw-bold">Nuestro catálogo</h1>
+    <p class="text-muted">
+        Encontrá los mejores productos al mejor precio.
+    </p>
+</div>
+
+
+<!-- CATÁLOGO -->
+<div class="row g-4">
+
+    {% for producto in productos %}
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+
+            <div class="card h-100 shadow-sm border-0">
+
+                <!-- IMAGEN -->
+                {% if producto.imagen %}
+                    <img 
+                        src="{{ producto.imagen.url }}"
+                        class="card-img-top"
+                        alt="{{ producto.nombre }}"
+                        style="height: 220px; object-fit: cover;"
+                    >
+                {% else %}
+                    <div 
+                        class="bg-secondary-subtle d-flex align-items-center justify-content-center"
+                        style="height: 220px;"
+                    >
+                        <span class="text-muted">
+                            Sin imagen
+                        </span>
+                    </div>
+                {% endif %}
+
+
+                <!-- INFORMACIÓN -->
+                <div class="card-body d-flex flex-column">
+
+                    <h5 class="card-title fw-bold">
+                        {{ producto.nombre }}
+                    </h5>
+
+                    <p class="card-text text-muted small">
+                        {{ producto.descripcion|truncatewords:15 }}
+                    </p>
+                    <p class="card-text text-muted small">
+                        {{ producto.stock }} unidades
+                    </p>
+                    <p class="card-text text-muted small">
+                        {{ producto.fecha_creacion }} 
+                    </p>
+                    <!-- PRECIO -->
+                    <div class="mt-auto">
+
+                        <p class="fs-4 fw-bold text-success mb-3">
+                            ${{ producto.precio }}
+                        </p>
+
+                        
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    {% empty %}
+
+        <!-- SI NO HAY PRODUCTOS -->
+        <div class="col-12">
+
+            <div class="alert alert-info text-center py-4">
+
+                <h4 class="alert-heading">
+                    No hay productos disponibles
+                </h4>
+
+                <p class="mb-0">
+                    Actualmente no tenemos productos disponibles en el catálogo.
+                </p>
+
+            </div>
+
+        </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}
