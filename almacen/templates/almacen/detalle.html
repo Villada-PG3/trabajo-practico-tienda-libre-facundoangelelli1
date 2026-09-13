@@ -1,0 +1,67 @@
+{% extends "almacen/base.html" %}
+
+{% block title %}{{ producto.nombre }} | Tienda Libre{% endblock %}
+
+{% block content %}
+
+<div class="container py-4">
+    
+    <!-- TAREA: Botón Volver al catálogo -->
+    <a href="{% url 'almacen:catalogo' %}" class="btn btn-outline-secondary">
+        ← Volver al catálogo
+    </a>
+
+    <div class="card shadow-sm border-0">
+        <div class="row g-0">
+            
+            <!-- IMAGEN DEL PRODUCTO -->
+            <div class="col-md-5">
+                {% if producto.imagen %}
+                    <img 
+                        src="{{ producto.imagen.url }}" 
+                        class="img-fluid rounded-start h-100 w-100" 
+                        alt="{{ producto.nombre }}"
+                        style="object-fit: cover; max-height: 400px;"
+                    >
+                {% else %}
+                    <div 
+                        class="bg-secondary-subtle d-flex align-items-center justify-content-center h-100 min-vh-25"
+                        style="min-height: 250px;"
+                    >
+                        <span class="text-muted fs-5">Sin imagen</span>
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- INFORMACIÓN DEL PRODUCTO -->
+            <div class="col-md-7">
+                <div class="card-body p-4 d-flex flex-column h-100">
+                    
+                    <h2 class="fw-bold mb-3">{{ producto.nombre }}</h2>
+                    
+                    <p class="fs-3 fw-bold text-success mb-3">
+                        ${{ producto.precio }}
+                    </p>
+
+                    <p class="card-text text-secondary mb-4">
+                        {{ producto.descripcion }}
+                    </p>
+
+                    <div class="mt-auto border-top pt-3">
+                        <p class="card-text mb-1 text-muted small">
+                            <strong>Stock disponible:</strong> {{ producto.stock }} unidades
+                        </p>
+                        <p class="card-text text-muted small">
+                            <strong>Fecha de publicación:</strong> {{ producto.fecha_creacion }}
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

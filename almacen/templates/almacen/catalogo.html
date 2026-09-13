@@ -45,9 +45,14 @@
                 <!-- INFORMACIÓN -->
                 <div class="card-body d-flex flex-column">
 
+                    <!-- INFORMACIÓN -->
                     <h5 class="card-title fw-bold">
-                        {{ producto.nombre }}
+                        <a href="{% url 'almacen:detalle_producto' producto.pk %}" class="text-decoration-none text-dark">
+                            {{ producto.nombre }}
+                        </a>
                     </h5>
+
+                    
 
                     <p class="card-text text-muted small">
                         {{ producto.descripcion|truncatewords:15 }}
