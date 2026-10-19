@@ -1,24 +1,28 @@
 from django.shortcuts import render, get_object_or_404
+from django.views.generic import TemplateView, ListView
 from .models import Producto
 
+# 1. Reescribir Home como TemplateView
+class HomeView(TemplateView):
+    template_name = 'almacen/home.html'
 
+    # Sobrescribimos este método para enviar datos adicionales al template (Práctica 5)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Traemos los 3 productos más recientes
+        context['productos_recientes'] = Producto.objects.order_by('-fecha_creacion')[:3]
+        return context
 
+# 2. Reescribir Catálogo como ListView
+class CatalogoView(ListView):
+    model = Producto
+    template_name = 'almacen/catalogo.html'
+    context_object_name = 'productos' # Así iteramos con {% for producto in productos %}
 
+# Mantenemos las que todavía no cambiamos (Acerca de mi y Detalle)
 def acerca_de_mi(request):
-    return render(request, "almacen/acerca-de-mi.html")
+    return render(request, 'almacen/acerca-de-mi.html')
 
-
-def catalogo(request):
-    producto = Producto.objects.filter(activo = True).order_by("-fecha_creacion")
-    context = {"productos": producto}
-    return render(request, "almacen/catalogo.html", context)
-def home(request):
-    producto = Producto.objects.filter(activo = True).order_by("-fecha_creacion")[:3]
-    context = {"productos": producto}
-    return render(request, "almacen/home.html", context)
 def detalle_producto(request, pk):
-    # Intentamos obtener el producto, si no existe, devuelve un error 404
     producto = get_object_or_404(Producto, pk=pk)
-    
-    # Pasamos el producto al template
     return render(request, 'almacen/detalle.html', {'producto': producto})
